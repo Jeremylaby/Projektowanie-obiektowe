@@ -80,10 +80,7 @@ public class ShopProvider {
                         Books item = new (Books())
                     }
                 }
-				Item item = new Item(name, category, price, quantity);
-				item.setPolish(isPolish);
-				item.setSecondhand(isSecondhand);
-
+				Item item = new Item(name, category, price, quantity,isSecondhand,isPolish);
 				items.add(item);
 
 			}
