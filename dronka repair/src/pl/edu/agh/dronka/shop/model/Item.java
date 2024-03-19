@@ -68,7 +68,14 @@ public class Item {
 		return polish;
 	}
     public void putSpecialInformations(Map<String,Object> map){};
-
+    public void getAllProperities(Map<String, Object> propertiesMap){
+        propertiesMap.put("Nazwa", this.getName());
+        propertiesMap.put("Cena", this.getPrice());
+        propertiesMap.put("Kategoria", this.getCategory().getDisplayName());
+        propertiesMap.put("Ilość", Integer.toString(this.getQuantity()));
+        propertiesMap.put("Tanie bo polskie", this.isPolish());
+        propertiesMap.put("Używany", this.isSecondhand());
+    }
 	@Override
 	public String toString() {
 		return getName();
