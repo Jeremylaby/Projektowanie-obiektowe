@@ -1,11 +1,19 @@
 package pl.edu.agh.dronka.shop.model.filter;
 
-import pl.edu.agh.dronka.shop.model.Item;
+import pl.edu.agh.dronka.shop.model.*;
 
 public class ItemFilter {
 
 	private Item itemSpec = new Item();
-
+    public void setItem(Category category){
+        switch (category){
+            case MUSIC -> itemSpec=new Music();
+            case BOOKS -> itemSpec=new Books();
+            case FOOD, SPORT -> itemSpec=new Item();
+            case ELECTRONICS -> itemSpec=new Elektronics();
+        }
+        itemSpec.setCategory(category);
+    }
 	public Item getItemSpec() {
 		return itemSpec;
 	}
@@ -29,7 +37,7 @@ public class ItemFilter {
 			return false;
 		}
 
-		return true;
+		return itemSpec.checkRest(item);
 	}
 
 }

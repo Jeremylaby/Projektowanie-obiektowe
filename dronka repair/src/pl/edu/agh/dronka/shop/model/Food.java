@@ -13,6 +13,8 @@ public class Food extends Item{
         this.expirationDate = expirationDate;
     }
 
+
+
     @Override
     public void getAllProperities(Map<String, Object> propertiesMap) {
         super.getAllProperities(propertiesMap);

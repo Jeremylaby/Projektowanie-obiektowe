@@ -12,6 +12,15 @@ public class Music extends Item{
         this.videoAvailable = videoAvailable;
     }
 
+    public Music() {
+
+    }
+
+    @Override
+    public void setOneRest(boolean first) {
+        setVideoAvailable(first);
+    }
+
     public MusicGenre getGenre() {
         return genre;
     }
@@ -21,6 +30,16 @@ public class Music extends Item{
         super.getAllProperities(propertiesMap);
         propertiesMap.put("Gatunek muzyczny",getGenre().getDisplayName());
         propertiesMap.put("Dostępność video",Boolean.toString(isVideoAvailable()));
+    }
+
+    @Override
+    public boolean checkRest(Item item) {
+        Music music = (Music) item;
+        return !this.isVideoAvailable() || music.isVideoAvailable();
+    }
+
+    public void setVideoAvailable(boolean videoAvailable) {
+        this.videoAvailable = videoAvailable;
     }
 
     public boolean isVideoAvailable() {

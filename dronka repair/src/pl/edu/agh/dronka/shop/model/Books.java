@@ -14,11 +14,29 @@ public class Books extends Item {
         this.pagesNumber = pagesNumber;
     }
 
+    public Books() {
+    }
+
+    @Override
+    public void setOneRest(boolean first) {
+        setHardCover(first);
+    }
+
+    public void setHardCover(boolean hardCover) {
+        this.hardCover = hardCover;
+    }
+
     @Override
     public void getAllProperities(Map<String, Object> propertiesMap) {
         super.getAllProperities(propertiesMap);
         propertiesMap.put("Twarda oprawa",Boolean.toString(this.isHardCover()));
         propertiesMap.put("Liczba stron",Integer.toString(this.getPagesNumber()));
+    }
+
+    @Override
+    public boolean checkRest(Item item) {
+        Books book = (Books) item;
+        return !this.isHardCover() || book.isHardCover();
     }
 
     public boolean isHardCover() {

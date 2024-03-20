@@ -25,7 +25,7 @@ public class PropertiesPanel extends JPanel {
 	public void fillProperties() {
 		removeAll();
 
-		filter.getItemSpec().setCategory(shopController.getCurrentCategory());
+		filter.setItem(shopController.getCurrentCategory());
 		add(createPropertyCheckbox("Tanie bo polskie", new ActionListener() {
 
 			@Override
@@ -45,6 +45,51 @@ public class PropertiesPanel extends JPanel {
 				shopController.filterItems(filter);
 			}
 		}));
+        switch (shopController.getCurrentCategory()){
+            case ELECTRONICS -> {
+
+                add(createPropertyCheckbox("Mobilny", new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                        filter.getItemSpec().setRest(
+                                ((JCheckBox) event.getSource()).isSelected(),true);
+                        shopController.filterItems(filter);
+                    }
+                }));
+                add(createPropertyCheckbox("Gwarancja", new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                        filter.getItemSpec().setRest(
+                                ((JCheckBox) event.getSource()).isSelected(),false);
+                        shopController.filterItems(filter);
+                    }
+                }));
+            }
+            case MUSIC -> {
+                add(createPropertyCheckbox("Dostępne video", new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                        filter.getItemSpec().setOneRest(
+                                ((JCheckBox) event.getSource()).isSelected());
+                        shopController.filterItems(filter);
+                    }
+                }));
+            }
+            case BOOKS -> {
+                add(createPropertyCheckbox("Twarda oprawa", new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent event) {
+                        filter.getItemSpec().setOneRest(
+                                ((JCheckBox) event.getSource()).isSelected());
+                        shopController.filterItems(filter);
+                    }
+                }));
+            }
+        }
 
 	}
 

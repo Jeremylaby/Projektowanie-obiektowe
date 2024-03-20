@@ -63,7 +63,8 @@ public class Item {
 	public void setPolish(boolean polish) {
 		this.polish = polish;
 	}
-
+    public void setRest(boolean first,boolean second){}
+    public void setOneRest(boolean first){}
 	public boolean isPolish() {
 		return polish;
 	}
@@ -76,8 +77,13 @@ public class Item {
         propertiesMap.put("Tanie bo polskie", this.isPolish());
         propertiesMap.put("Używany", this.isSecondhand());
     }
+
 	@Override
 	public String toString() {
 		return getName();
 	}
+
+    public  boolean checkRest(Item item){
+        return true;
+    }
 }
