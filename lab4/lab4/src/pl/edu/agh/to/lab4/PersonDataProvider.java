@@ -2,8 +2,9 @@ package pl.edu.agh.to.lab4;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
-public class PersonDataProvider {
+public class PersonDataProvider implements SuspectAgregator {
 
     private final Collection<CracowCitizen> cracovCitizens = new ArrayList<CracowCitizen>();
 
@@ -21,7 +22,12 @@ public class PersonDataProvider {
         cracovCitizens.add(new CracowCitizen("Krzysztof", "Mendel", 30));
     }
 
+
     public Collection<CracowCitizen> getAllCracovCitizens() {
         return cracovCitizens;
+    }
+    public Iterator<Suspect> iterator(){
+        Collection<Suspect> suspects = new ArrayList<Suspect>(cracovCitizens);
+        return suspects.iterator();
     }
 }

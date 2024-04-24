@@ -4,7 +4,7 @@ import java.util.*;
 
 public class PrisonersDatabase implements SuspectAgregator {
 
-    private final Map<String, Collection<Prisoner>> prisoners = new HashMap<String, Collection<Prisoner>>();
+    private final Map<String, Collection<Prisoner>> prisoners = new HashMap<>();
 
     public PrisonersDatabase() {
         addPrisoner("Wiezienie krakowskie", new Prisoner("Jan", "Kowalski", "87080452357", 2005, 7));
@@ -17,7 +17,7 @@ public class PrisonersDatabase implements SuspectAgregator {
         addPrisoner("Wiezienie centralne", new Prisoner("Janusz", "Podejrzany", "85121212456", 2012, 1));
     }
 
-    public Map<String, Collection<Prisoner> findAll() {
+    public Map<String, Collection<Prisoner>> findAll() {
         return prisoners;
     }
 
@@ -32,11 +32,11 @@ public class PrisonersDatabase implements SuspectAgregator {
     }
 
     public static String render(Prisoner prisoner) {
-        return prisoner.getName() + " " + prisoner.getSurname();
+        return prisoner.getFirstname() + " " + prisoner.getLastname();
     }
 
     @Override
     public Iterator<Suspect> iterator() {
-        return prisoners.values().iterator();
+        return new FlatIterator<>(prisoners);
     }
 }

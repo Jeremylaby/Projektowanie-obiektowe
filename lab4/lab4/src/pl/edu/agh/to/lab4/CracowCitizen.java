@@ -3,10 +3,10 @@ package pl.edu.agh.to.lab4;
 public class CracowCitizen extends Suspect {
 
 
-    private int age;
+    private final int age;
 
-    public CracowCitizen(String name, String surname, int age) {
-        super(name,surname);
+    public CracowCitizen(String firstname, String lastname, int age) {
+        super(firstname,lastname);
         this.age = age;
     }
 
