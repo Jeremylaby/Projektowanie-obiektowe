@@ -1,4 +1,6 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.iterators;
+
+import pl.edu.agh.to.lab4.models.Suspect;
 
 import java.util.Iterator;
 

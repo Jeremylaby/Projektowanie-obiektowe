@@ -1,12 +1,13 @@
 package pl.edu.agh.to.lab4;
 
 import org.junit.Test;
+import pl.edu.agh.to.lab4.provider.PrisonersDataProvider;
 
 import static org.junit.Assert.assertEquals;
 
 public class PrisonerDatabaseTest {
 
-    private PrisonersDatabase prisonersDatabase = new PrisonersDatabase();
+    private PrisonersDataProvider prisonersDatabase = new PrisonersDataProvider();
 
     @Test
     public void testThereAreThreeJails() {

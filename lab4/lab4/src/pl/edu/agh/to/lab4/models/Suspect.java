@@ -1,4 +1,4 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.models;
 
 public abstract class Suspect {
     private final String firstname;

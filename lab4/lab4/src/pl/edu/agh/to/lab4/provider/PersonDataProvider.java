@@ -1,4 +1,8 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.provider;
+
+import pl.edu.agh.to.lab4.iterators.SuspectAgregator;
+import pl.edu.agh.to.lab4.models.CracowCitizen;
+import pl.edu.agh.to.lab4.models.Suspect;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,6 +11,9 @@ import java.util.Iterator;
 public class PersonDataProvider implements SuspectAgregator {
 
     private final Collection<CracowCitizen> cracovCitizens = new ArrayList<CracowCitizen>();
+    public PersonDataProvider(Collection<CracowCitizen> cracowCitizens){
+        cracovCitizens.addAll(cracowCitizens);
+    }
 
     public PersonDataProvider() {
         cracovCitizens.add(new CracowCitizen("Jan", "Kowalski", 30));
@@ -27,7 +34,6 @@ public class PersonDataProvider implements SuspectAgregator {
         return cracovCitizens;
     }
     public Iterator<Suspect> iterator(){
-        Collection<Suspect> suspects = new ArrayList<Suspect>(cracovCitizens);
-        return suspects.iterator();
+        return ((Collection<Suspect>)(Collection<?>) cracovCitizens).iterator();
     }
 }

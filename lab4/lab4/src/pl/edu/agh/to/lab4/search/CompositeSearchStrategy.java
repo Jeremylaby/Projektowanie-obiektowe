@@ -1,8 +1,11 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.search;
+
+import pl.edu.agh.to.lab4.models.Suspect;
+import pl.edu.agh.to.lab4.search.SearchStrategy;
 
 import java.util.Collection;
 
-public class CompositeSearchStrategy implements SearchStrategy{
+public class CompositeSearchStrategy implements SearchStrategy {
     private final Collection<SearchStrategy> strategies;
 
     public CompositeSearchStrategy(Collection<SearchStrategy> strategies) {

@@ -1,12 +1,23 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.provider;
+
+import pl.edu.agh.to.lab4.iterators.SuspectAgregator;
+import pl.edu.agh.to.lab4.iterators.FlatIterator;
+import pl.edu.agh.to.lab4.models.Prisoner;
+import pl.edu.agh.to.lab4.models.Suspect;
 
 import java.util.*;
 
-public class PrisonersDatabase implements SuspectAgregator {
+public class PrisonersDataProvider implements SuspectAgregator {
 
     private final Map<String, Collection<Prisoner>> prisoners = new HashMap<>();
-
-    public PrisonersDatabase() {
+    public PrisonersDataProvider(Map<String, Collection<Prisoner>> prisoners){
+        for(String key : prisoners.keySet()){
+            for(Prisoner prisoner : prisoners.get(key)){
+                addPrisoner(key,prisoner);
+            }
+        }
+    }
+    public PrisonersDataProvider() {
         addPrisoner("Wiezienie krakowskie", new Prisoner("Jan", "Kowalski", "87080452357", 2005, 7));
         addPrisoner("Wiezienie krakowskie", new Prisoner("Anita", "Wiercipieta", "84080452357", 2009, 3));
         addPrisoner("Wiezienie krakowskie", new Prisoner("Janusz", "Zlowieszczy", "92080445657", 2001, 10));

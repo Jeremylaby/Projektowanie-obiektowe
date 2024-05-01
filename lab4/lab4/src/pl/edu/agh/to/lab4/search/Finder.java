@@ -1,4 +1,10 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.search;
+
+import pl.edu.agh.to.lab4.models.Suspect;
+import pl.edu.agh.to.lab4.iterators.CompositeAggregate;
+import pl.edu.agh.to.lab4.provider.PersonDataProvider;
+import pl.edu.agh.to.lab4.provider.PrisonersDataProvider;
+import pl.edu.agh.to.lab4.iterators.SuspectAgregator;
 
 import java.util.*;
 
@@ -9,7 +15,7 @@ public class Finder {
         this.aggregate = new CompositeAggregate(aggregate);
     }
 
-    public Finder(PersonDataProvider personDataProvider, PrisonersDatabase prisonersDatabase) {
+    public Finder(PersonDataProvider personDataProvider, PrisonersDataProvider prisonersDatabase) {
         this(Arrays.asList(personDataProvider, prisonersDatabase));
     }
     public void display(SearchStrategy strategy){
@@ -24,7 +30,7 @@ public class Finder {
         }
         System.out.println("Znalazlem " + suspects.size() + " pasujacych podejrzanych!");
         for(Suspect suspect : suspects){
-            suspect.display();
+            System.out.println(suspect.display());
         }
     }
 

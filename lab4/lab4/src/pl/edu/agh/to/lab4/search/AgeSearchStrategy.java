@@ -1,6 +1,9 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.search;
 
-public class AgeSearchStrategy implements SearchStrategy{
+import pl.edu.agh.to.lab4.models.Suspect;
+import pl.edu.agh.to.lab4.search.SearchStrategy;
+
+public class AgeSearchStrategy implements SearchStrategy {
     private final int fromAge;
     private final int toAge;
 

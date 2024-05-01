@@ -1,4 +1,7 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.iterators;
+
+import pl.edu.agh.to.lab4.iterators.SuspectAgregator;
+import pl.edu.agh.to.lab4.models.Suspect;
 
 import java.util.ArrayList;
 import java.util.Collection;

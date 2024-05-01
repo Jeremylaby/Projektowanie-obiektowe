@@ -1,6 +1,9 @@
-package pl.edu.agh.to.lab4;
+package pl.edu.agh.to.lab4.search;
 
-public class NameSearchStrategy implements SearchStrategy{
+import pl.edu.agh.to.lab4.models.Suspect;
+import pl.edu.agh.to.lab4.search.SearchStrategy;
+
+public class NameSearchStrategy implements SearchStrategy {
     private final String name;
 
     public NameSearchStrategy(String name) {
