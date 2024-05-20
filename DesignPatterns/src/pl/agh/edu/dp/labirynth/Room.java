@@ -26,6 +26,10 @@ public class Room extends MapSite
         return this.roomNumber;
     }
 
+    public Map<Direction, MapSite> getSides() {
+        return sides;
+    }
+
     @Override
     public void Enter(){
 
