@@ -9,4 +9,8 @@ public class MagicRealm extends Room {
     public void containsMagic(){
         System.out.println("Magic");
     }
+    @Override
+    public void Enter() {
+        System.out.println("New Magic Realm "+this.getRoomNumber());
+    }
 }

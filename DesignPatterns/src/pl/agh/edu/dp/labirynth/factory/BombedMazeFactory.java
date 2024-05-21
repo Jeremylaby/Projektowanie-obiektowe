@@ -8,6 +8,16 @@ import pl.agh.edu.dp.labirynth.bombed.BombedWall;
 
 
 public class BombedMazeFactory extends MazeFactory{
+    private static BombedMazeFactory instance = null;
+    protected BombedMazeFactory(){
+
+    }
+    public static BombedMazeFactory getInstance(){
+        if(instance ==null){
+            instance =new BombedMazeFactory();
+        }
+        return instance;
+    }
     @Override
     public Room makeRoom(int roomNo){
         BombedRoom bombedRoom= new BombedRoom(roomNo);

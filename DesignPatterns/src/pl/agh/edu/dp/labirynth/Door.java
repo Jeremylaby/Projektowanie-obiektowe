@@ -12,7 +12,7 @@ public class Door extends MapSite {
 
     @Override
     public void Enter(){
-
+        System.out.println("You going through the door");
     }
 
     public Room getRoom1() {
@@ -29,5 +29,8 @@ public class Door extends MapSite {
 
     public void setRoom2(Room room2) {
         this.room1 = room2;
+    }
+    public Room goToNextRoom(Room room){
+        return room==room1?room2:room1;
     }
 }

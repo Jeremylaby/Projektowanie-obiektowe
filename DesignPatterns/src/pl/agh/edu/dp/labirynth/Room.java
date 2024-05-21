@@ -32,6 +32,6 @@ public class Room extends MapSite
 
     @Override
     public void Enter(){
-
+        System.out.println("You have entered Room "+roomNumber );
     }
 }

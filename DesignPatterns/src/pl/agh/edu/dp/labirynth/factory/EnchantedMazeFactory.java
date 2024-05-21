@@ -6,6 +6,15 @@ import pl.agh.edu.dp.labirynth.enchanted.HighMagicMountains;
 import pl.agh.edu.dp.labirynth.enchanted.MagicRealm;
 
 public class EnchantedMazeFactory extends MazeFactory{
+    private static EnchantedMazeFactory instance = null;
+    protected EnchantedMazeFactory(){
+    }
+    public static EnchantedMazeFactory getInstance(){
+        if(instance==null){
+            instance=new EnchantedMazeFactory();
+        }
+        return instance;
+    }
     @Override
     public Room makeRoom(int roomNo){
         MagicRealm magicRealm = new MagicRealm(roomNo);

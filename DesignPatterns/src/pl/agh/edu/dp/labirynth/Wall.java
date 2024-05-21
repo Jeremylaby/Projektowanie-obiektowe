@@ -7,6 +7,6 @@ public class Wall extends MapSite {
 
     @Override
     public void Enter(){
-
+        System.out.println("You ran into a wall");
     }
 }
